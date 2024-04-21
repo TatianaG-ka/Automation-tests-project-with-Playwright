@@ -29,4 +29,10 @@ Run all tests:
 npx playwright test
 ```
 
+Run all tests with tags:
+
+```
+npx playwright test --grep @TDI-R01-01
+```
+
 For more usage cases look in `package.json` scripts section.
