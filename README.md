@@ -34,5 +34,10 @@ Run all tests with tags:
 ```
 npx playwright test --grep @TDI-R01-01
 ```
+Run all tests without tags:
+
+```
+npx playwright test --grep-invert @TDI-R01-01
+```
 
 For more usage cases look in `package.json` scripts section.
