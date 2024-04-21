@@ -1,7 +1,7 @@
-# Tests for ___ application
+# Tests for todoist application
 
 
-## ____ Application
+## todoist Application
 Repository:____________
 
 
