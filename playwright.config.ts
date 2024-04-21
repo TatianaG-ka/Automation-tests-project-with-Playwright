@@ -12,6 +12,7 @@ export default defineConfig({
   workers: undefined,
   reporter: 'html',
   use: {
+    baseURL: 'https://todoist.com/pl',
     actionTimeout: 0,
     trace: 'retain-on-failure',
     video: 'retain-on-failure',
