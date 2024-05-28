@@ -1,5 +1,5 @@
 import { LoginPage } from '../src/pages/login.page';
-import { WelcomPage } from '../src/pages/welcom.page';
+import { WelcomePage } from '../src/pages/welcome.page';
 import { expect, test } from '@playwright/test';
 
 test.describe('Verify login', () => {
@@ -13,10 +13,10 @@ test.describe('Verify login', () => {
     await loginPage.goto();
     await loginPage.login(userEmail, userPassword);
 
-    const welcomPage = new WelcomPage(page);
-    const title = await welcomPage.title();
+    const welcomePage = new WelcomePage(page);
+    const title = await welcomePage.title();
 
     //Assert
-    expect(title).toContain('Welcom');
+    expect(title).toContain('Welcome');
   });
 });
