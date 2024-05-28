@@ -20,6 +20,8 @@ Follow instructions in app README
 - install dependencies: `npm install`
 - setup Playwright with: `npx playwright install --with-deps chromium`
 - setup husky with: `npx husky install`
+- prepare local env file: 'cp .env-template .env'
+- copy application main URL as value of 'BASE_URL' variable in '.env' file
 
 ## Use
 
@@ -32,12 +34,12 @@ npx playwright test
 Run all tests with tags:
 
 ```
-npx playwright test --grep @TDI-R01-01
+npx playwright test --grep "@R01-01"
 ```
 Run all tests without tags:
 
 ```
-npx playwright test --grep-invert @TDI-R01-01
+npx playwright test --grep-invert "@TDI-R01-01"
 ```
 
 For more usage cases look in `package.json` scripts section.
