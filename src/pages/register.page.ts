@@ -9,7 +9,9 @@ export class RegisterPage extends BasePage {
   emailInput = this.page.getByTestId('email-input');
   passwordInput = this.page.getByTestId('password-input');
   registerButton = this.page.getByTestId('register-button');
+
   alertPopup = this.page.getByTestId('alert-popup');
+  emailErrorText = this.page.locator('#octavalidate_email');
 
   constructor(page: Page) {
     super(page);

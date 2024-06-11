@@ -48,4 +48,51 @@ test.describe('Verify register', () => {
     const titleWelcome = await welcomePage.title();
     expect(titleWelcome).toContain('Welcome');
   });
+
+  test('No register with incorrect data - non valid email @R03-04', async ({
+    page,
+  }) => {
+    //Array
+    const expectedEmailErrorText = 'Please provide a valid email address';
+
+    const registerUserData: RegisterUser = {
+      userFirstName: faker.person.firstName().replace(/[^A-Za-z]g/, ''),
+      userLastName: faker.person.lastName().replace(/[^A-Za-z]g/, ''),
+      userEmail: '@34123',
+      userPassword: faker.internet.password(),
+    };
+
+    const registerPage = new RegisterPage(page);
+
+    //Act
+    await registerPage.goto();
+    await registerPage.register(registerUserData);
+
+    //Assert
+    await expect(registerPage.emailErrorText).toHaveText(
+      expectedEmailErrorText,
+    );
+  });
+
+  test('No register with incorrect data - email not provided @R03-04', async ({
+    page,
+  }) => {
+    //Array
+    const expectedEmailError = 'This field is required';
+
+    //Act
+    const registerPage = new RegisterPage(page);
+    await registerPage.goto();
+    await registerPage.firstNameInput.fill(
+      faker.person.firstName().replace(/[^A-Za-z]g/, ''),
+    );
+    await registerPage.lastNameInput.fill(
+      faker.person.lastName().replace(/[^A-Za-z]g/, ''),
+    );
+    await registerPage.passwordInput.fill(faker.internet.password());
+    await registerPage.registerButton.click();
+
+    //Assert
+    await expect(registerPage.emailErrorText).toHaveText(expectedEmailError);
+  });
 });
