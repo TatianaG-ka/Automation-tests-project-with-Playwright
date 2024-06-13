@@ -1,0 +1,11 @@
+import { AddArticleModel } from '../models/article.model';
+import { faker } from '@faker-js/faker/locale/en';
+
+export function randomNewArticle(): AddArticleModel {
+  const title = faker.lorem.sentence();
+  const body = faker.lorem.paragraph(5);
+
+  const newArticle = { title: title, body: body };
+
+  return newArticle;
+}
