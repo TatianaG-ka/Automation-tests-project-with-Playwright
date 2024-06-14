@@ -2,7 +2,7 @@
 
 ## todoist Application
 
-Repository:****\_\_\_\_****
+Repository:\***\*\_\_\_\_\*\***
 
 Follow instructions in app README
 
@@ -36,6 +36,7 @@ Run all tests with tags:
 ```
 npx playwright test --grep "@R01-01"
 ```
+
 Run all tests without tags:
 
 ```

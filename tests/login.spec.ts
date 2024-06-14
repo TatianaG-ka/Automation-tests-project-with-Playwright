@@ -39,5 +39,4 @@ test.describe('Verify login', () => {
     const title = await loginPage.title();
     expect.soft(title).toContain('Login');
   });
-
 });

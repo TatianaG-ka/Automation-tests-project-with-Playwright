@@ -33,10 +33,9 @@ We need static code analysis tools for:
 
 **Creator**: Tetiana Golinska
 
-
 ## 2. Use of dotenv in automated tests <a id="use-of-dotenv-in-automated-tests"></a>
 
-**ID**: 002 
+**ID**: 002
 **Status**: Decided  
 **Date**: 2024/06/10  
 **Context**: We need a reliable way to manage environment-specific configurations, such as passwords, API keys, database connections, and other sensitive information.
