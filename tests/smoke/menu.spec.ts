@@ -10,11 +10,11 @@ test.describe('Verify menu main button', () => {
     // Arrange
     const expectedCommentsTitle = 'Comments';
     const articlesPage = new ArticlesPage(page);
+    const commentsPage = new CommentsPage(page);
 
     // Act
     await articlesPage.goto();
     await articlesPage.mainMenu.commentsButton.click();
-    const commentsPage = new CommentsPage(page);
     const title = await commentsPage.getTitle();
 
     //Assert
@@ -27,11 +27,11 @@ test.describe('Verify menu main button', () => {
     // Arrange
     const expectedArticleTitle = 'Articles';
     const commentsPage = new CommentsPage(page);
+    const articlesPage = new ArticlesPage(page);
 
     // Act
     await commentsPage.goto();
     await commentsPage.mainMenu.articlesButton.click();
-    const articlesPage = new ArticlesPage(page);
     const title = await articlesPage.getTitle();
 
     //Assert
@@ -42,11 +42,11 @@ test.describe('Verify menu main button', () => {
     // Arrange
     const expectedHomePageTitle = 'GAD';
     const articlesPage = new ArticlesPage(page);
+    const homePage = new HomePage(page);
 
     // Act
     await articlesPage.goto();
     await articlesPage.mainMenu.homePage.click();
-    const homePage = new HomePage(page);
     const title = await homePage.getTitle();
 
     //Assert
