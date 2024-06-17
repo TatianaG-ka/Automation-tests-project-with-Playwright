@@ -66,7 +66,7 @@ test.describe('Create, verify and delete article', () => {
 
     //Assert
     await articlesPage.waitForPageToLoadUrl();
-    const title = await articlesPage.title();
+    const title = await articlesPage.getTitle();
     expect.soft(title).toContain('Articles');
 
     await articlesPage.searchArticle(articleData.title);
