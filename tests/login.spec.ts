@@ -21,7 +21,7 @@ test.describe('Verify login', () => {
     expect(title).toContain(expectedWelcomeTitle);
   });
 
-  test('reject login with incorrect password @R02-01', async ({ page }) => {
+  test('reject login with incorrect password @R02-01 @logged', async ({ page }) => {
     //Arrange
     const expectedLoginTitle = 'Login';
     const loginPage = new LoginPage(page);
