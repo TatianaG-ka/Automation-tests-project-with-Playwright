@@ -6,7 +6,8 @@ export class ArticlesPage extends BasePage {
   url = '/articles.html';
   addArticleButtonLogged = this.page.locator('#add-new');
   searchField = this.page.getByTestId('search-input');
-  searchButton = this.page.getByTestId('search-button');;
+  searchButton = this.page.getByTestId('search-button');
+  noResultText = this.page.getByTestId('no-results');
 
   mainMenu = new MainMenuComponent(this.page);
 
@@ -15,6 +16,11 @@ export class ArticlesPage extends BasePage {
   }
 
   async gotoArticle(title: string): Promise<void> {
-    this.page.getByText(title).click();
+    await this.page.getByText(title).click();
+  }
+
+  async searchArticle(phrases: string): Promise<void> {
+    await this.searchField.fill(phrases);
+    await this.searchButton.click();
   }
 }
