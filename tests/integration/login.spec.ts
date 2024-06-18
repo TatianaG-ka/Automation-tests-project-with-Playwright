@@ -1,7 +1,7 @@
-import { LoginUserModel } from '../../src/models/user.model';
-import { LoginPage } from '../../src/pages/login.page';
-import { WelcomePage } from '../../src/pages/welcome.page';
-import { testUser1 } from '../../src/test-data/user.data';
+import { LoginUserModel } from '@_scr/models/user.model';
+import { LoginPage } from '@_scr/pages/login.page';
+import { WelcomePage } from '@_scr/pages/welcome.page';
+import { testUser1 } from '@_scr/test-data/user.data';
 import { expect, test } from '@playwright/test';
 
 test.describe('Verify login', () => {

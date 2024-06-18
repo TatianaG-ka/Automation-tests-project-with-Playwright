@@ -1,8 +1,8 @@
-import { prepareRandomUser } from '../../src/factories/user.factory';
-import { RegisterUserModel } from '../../src/models/user.model';
-import { LoginPage } from '../../src/pages/login.page';
-import { RegisterPage } from '../../src/pages/register.page';
-import { WelcomePage } from '../../src/pages/welcome.page';
+import { prepareRandomUser } from '@_scr/factories/user.factory';
+import { RegisterUserModel } from '@_scr/models/user.model';
+import { LoginPage } from '@_scr/pages/login.page';
+import { RegisterPage } from '@_scr/pages/register.page';
+import { WelcomePage } from '@_scr/pages/welcome.page';
 import { expect, test } from '@playwright/test';
 
 test.describe('Verify register', () => {

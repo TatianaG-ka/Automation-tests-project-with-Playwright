@@ -1,7 +1,7 @@
-import { prepareRandomNewArticle } from '../../src/factories/article.factory';
-import { ArticlePage } from '../../src/pages/article.page';
-import { ArticlesPage } from '../../src/pages/articles.page';
-import { AddArticleView } from '../../src/views/add-article.view';
+import { prepareRandomNewArticle } from '@_scr/factories/article.factory';
+import { ArticlePage } from '@_scr/pages/article.page';
+import { ArticlesPage } from '@_scr/pages/articles.page';
+import { AddArticleView } from '@_scr/views/add-article.view';
 import { expect, test } from '@playwright/test';
 
 test.describe('Verify articles', () => {
