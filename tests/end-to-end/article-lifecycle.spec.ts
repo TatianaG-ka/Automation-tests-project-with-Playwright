@@ -1,8 +1,8 @@
-import { prepareRandomNewArticle } from '@_scr/factories/article.factory';
-import { AddArticleModel } from '@_scr/models/article.model';
-import { ArticlePage } from '@_scr/pages/article.page';
-import { ArticlesPage } from '@_scr/pages/articles.page';
-import { AddArticleView } from '@_scr/views/add-article.view';
+import { prepareRandomNewArticle } from '@_src/factories/article.factory';
+import { AddArticleModel } from '@_src/models/article.model';
+import { ArticlePage } from '@_src/pages/article.page';
+import { ArticlesPage } from '@_src/pages/articles.page';
+import { AddArticleView } from '@_src/views/add-article.view';
 import { expect, test } from '@playwright/test';
 
 test.describe.configure({ mode: 'serial' });

@@ -1,6 +1,6 @@
-import { ArticlesPage } from '@_scr/pages/articles.page';
-import { CommentsPage } from '@_scr/pages/comments.page';
-import { HomePage } from '@_scr/pages/home.page';
+import { ArticlesPage } from '@_src/pages/articles.page';
+import { CommentsPage } from '@_src/pages/comments.page';
+import { HomePage } from '@_src/pages/home.page';
 import { expect, test } from '@playwright/test';
 
 test.describe('Verify service main pages', () => {
