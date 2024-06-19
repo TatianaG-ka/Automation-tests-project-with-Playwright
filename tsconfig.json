@@ -1,7 +1,13 @@
 {
-    "compilerOptions": {
+  "compilerOptions": {
     "target": "ES2021",
     "module": "CommonJS",
-    "sourceMap": true
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@_config/*": ["config/*"],
+      "@_src/*": ["src/*"],
+      "@_pw-config": ["playwright.config.ts"]
     }
   }
+}

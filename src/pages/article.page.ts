@@ -1,5 +1,5 @@
-import { MainMenuComponent } from '../components/main-menu.components';
-import { BasePage } from './base.page';
+import { MainMenuComponent } from '@_src/components/main-menu.components';
+import { BasePage } from '@_src/pages/base.page';
 import { Page } from '@playwright/test';
 
 export class ArticlePage extends BasePage {
@@ -8,6 +8,8 @@ export class ArticlePage extends BasePage {
   articleTitle = this.page.getByTestId('article-title');
   articleBody = this.page.getByTestId('article-body');
   deleteButton = this.page.getByTestId('delete');
+  addCommentButton = this.page.locator('#add-new-comment');
+  alertPopup = this.page.getByTestId('alert-popup');
 
   constructor(page: Page) {
     super(page);
