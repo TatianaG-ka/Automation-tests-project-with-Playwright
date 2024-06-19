@@ -5,7 +5,8 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "@_scr/*": ["src/*"]
+      "@_scr/*": ["src/*"],
+      "@_pw-config": ["playwright.config.ts"]
     }
   }
 }
