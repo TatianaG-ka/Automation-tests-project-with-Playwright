@@ -1,4 +1,5 @@
 import { MainMenuComponent } from '@_src/components/main-menu.components';
+import { ArticlesPage } from '@_src/pages/articles.page';
 import { BasePage } from '@_src/pages/base.page';
 import { Page } from '@playwright/test';
 
@@ -15,8 +16,11 @@ export class ArticlePage extends BasePage {
     super(page);
   }
 
-  async deleteArticle(): Promise<void> {
+  async deleteArticle(): Promise<ArticlesPage> {
     this.page.on('dialog', async (dialog) => await dialog.accept());
     await this.deleteButton.click();
+
+    return new ArticlesPage(this.page);
   }
+  
 }
