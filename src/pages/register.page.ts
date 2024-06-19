@@ -1,5 +1,5 @@
-import { RegisterUserModel } from '../models/user.model';
 import { BasePage } from './base.page';
+import { RegisterUserModel } from '@_scr/models/user.model';
 import { Page } from '@playwright/test';
 
 export class RegisterPage extends BasePage {
