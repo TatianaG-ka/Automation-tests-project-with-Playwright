@@ -22,6 +22,6 @@ export class MainMenuComponent {
 
   async clickHomePageLink(): Promise<HomePage> {
     await this.homePageLink.click();
-    return new HomePage(this.page);;
+    return new HomePage(this.page);
   }
 }
