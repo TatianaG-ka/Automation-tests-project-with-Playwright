@@ -1,3 +1,4 @@
+import { prepareRandomArticle } from '@_src/factories/article.factory';
 import { ArticlePage } from '@_src/pages/article.page';
 import { ArticlesPage } from '@_src/pages/articles.page';
 import { CommentsPage } from '@_src/pages/comments.page';
@@ -55,5 +56,16 @@ export const pageObjectTest = baseTest.extend<Pages>({
     const registerPage = new RegisterPage(page);
     await registerPage.goto();
     await use(registerPage);
+  },
+});
+
+interface ArticleRandom {
+  createRandomArticle: ArticlePage;
+}
+export const articleTest = baseTest.extend<ArticleRandom>({
+  createRandomArticle: async ({ addArticleView }, use) => {
+    const articleData = prepareRandomArticle();
+    const articlePage = addArticleView.createArticle();
+    await use(articlePage);
   },
 });

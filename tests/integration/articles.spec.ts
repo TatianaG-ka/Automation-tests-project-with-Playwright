@@ -1,4 +1,4 @@
-import { prepareRandomNewArticle } from '@_src/factories/article.factory';
+import { prepareRandomArticle } from '@_src/factories/article.factory';
 import { expect, test } from '@_src/fixtures/merge.fixture';
 
 test.describe('Verify articles', () => {
@@ -7,7 +7,7 @@ test.describe('Verify articles', () => {
   }) => {
     //Array
     const expectedErrorMessage = 'Article was not created';
-    const articleData = prepareRandomNewArticle();
+    const articleData = prepareRandomArticle();
     articleData.title = '';
 
     //Act
@@ -22,7 +22,7 @@ test.describe('Verify articles', () => {
   }) => {
     //Arrange
     const expectedErrorMessage = 'Article was not created';
-    const articleData = prepareRandomNewArticle();
+    const articleData = prepareRandomArticle();
     articleData.body = '';
 
     //Act
@@ -38,7 +38,7 @@ test.describe('Verify articles', () => {
     }) => {
       //Arrange
       const expectedErrorMessage = 'Article was not created';
-      const articleData = prepareRandomNewArticle(129);
+      const articleData = prepareRandomArticle(129);
 
       //Act
       await addArticleView.createArticle(articleData);
@@ -51,7 +51,7 @@ test.describe('Verify articles', () => {
       addArticleView,
     }) => {
       //Arrange
-      const articleData = prepareRandomNewArticle(128);
+      const articleData = prepareRandomArticle(128);
 
       //Act
       const articlePage = await addArticleView.createArticle(articleData);
