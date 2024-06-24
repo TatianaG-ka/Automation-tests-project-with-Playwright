@@ -1,22 +1,10 @@
 import { prepareRandomNewArticle } from '@_src/factories/article.factory';
-import { ArticlesPage } from '@_src/pages/articles.page';
-import { AddArticleView } from '@_src/views/add-article.view';
-import { expect, test } from '@playwright/test';
+import { expect, test } from '@_src/fixtures/merge.fixture';
 
 test.describe('Verify articles', () => {
-  let articlesPage: ArticlesPage;
-  let addArticleView: AddArticleView;
-
-  test.beforeEach(async ({ page }) => {
-    articlesPage = new ArticlesPage(page);
-
-    await articlesPage.goto();
-    addArticleView = await articlesPage.clickAddArticleButtonLogged();
-
-    await expect.soft(addArticleView.addNewHeader).toBeVisible();
-  });
-
-  test('reject creating article without title @R04-01 @logged', async () => {
+  test('reject creating article without title @R04-01 @logged', async ({
+    addArticleView,
+  }) => {
     //Array
     const expectedErrorMessage = 'Article was not created';
     const articleData = prepareRandomNewArticle();
@@ -29,7 +17,9 @@ test.describe('Verify articles', () => {
     await expect(addArticleView.alertPopup).toHaveText(expectedErrorMessage);
   });
 
-  test('reject creating article without body @R04-01 @logged', async () => {
+  test('reject creating article without body @R04-01 @logged', async ({
+    addArticleView,
+  }) => {
     //Arrange
     const expectedErrorMessage = 'Article was not created';
     const articleData = prepareRandomNewArticle();
@@ -43,7 +33,9 @@ test.describe('Verify articles', () => {
   });
 
   test.describe('test length', () => {
-    test('reject creating title with exceeding 128 signs @R04-02 @logged', async () => {
+    test('reject creating title with exceeding 128 signs @R04-02 @logged', async ({
+      addArticleView,
+    }) => {
       //Arrange
       const expectedErrorMessage = 'Article was not created';
       const articleData = prepareRandomNewArticle(129);
@@ -55,7 +47,9 @@ test.describe('Verify articles', () => {
       await expect(addArticleView.alertPopup).toHaveText(expectedErrorMessage);
     });
 
-    test('create title with 128 signs @R04-02 @logged', async () => {
+    test('create title with 128 signs @R04-02 @logged', async ({
+      addArticleView,
+    }) => {
       //Arrange
       const articleData = prepareRandomNewArticle(128);
 
