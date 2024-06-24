@@ -1,12 +1,10 @@
-import { ArticlePage } from '@_src/pages/article.page';
-import { expect, test } from '@playwright/test';
+import { expect, test } from '@_src/fixtures/merge.fixture';
 
 test('Non logged user can access created article @R05-01 @predefined_data', async ({
-  page,
+  articlePage,
 }) => {
   //Arrange
   const expectedArticleTitle = 'How to write effective test cases';
-  const articlePage = new ArticlePage(page);
 
   //Act
   await articlePage.goto('?id=1');
