@@ -75,8 +75,9 @@ test.describe('Verify articles', () => {
     }) => {
       //Arrange
       const expectedResponseStatus = 201;
+
       const articleData = prepareRandomArticle(128);
-      const responsePromise = waitForResponse(page, '/api/articles*');
+      const responsePromise = waitForResponse(page, '/api/articles');
 
       //Act
       const articlePage = await addArticleView.createArticle(articleData);

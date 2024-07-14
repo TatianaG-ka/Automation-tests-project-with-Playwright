@@ -1,6 +1,7 @@
 import { MainMenuComponent } from '@_src/components/main-menu.components';
 import { ArticlesPage } from '@_src/pages/articles.page';
 import { BasePage } from '@_src/pages/base.page';
+import { AddCommentView } from '@_src/views/add-comment.view';
 import { Page } from '@playwright/test';
 
 export class ArticlePage extends BasePage {
@@ -14,6 +15,11 @@ export class ArticlePage extends BasePage {
 
   constructor(page: Page) {
     super(page);
+  }
+
+  async clickAddCommentButton(): Promise<AddCommentView> {
+    await this.addCommentButton.click();
+    return new AddCommentView(this.page);
   }
 
   async deleteArticle(): Promise<ArticlesPage> {

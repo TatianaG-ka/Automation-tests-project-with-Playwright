@@ -6,6 +6,7 @@ import { HomePage } from '@_src/pages/home.page';
 import { LoginPage } from '@_src/pages/login.page';
 import { RegisterPage } from '@_src/pages/register.page';
 import { AddArticleView } from '@_src/views/add-article.view';
+import { AddCommentView } from '@_src/views/add-comment.view';
 import { test as baseTest } from '@playwright/test';
 
 interface Pages {
@@ -16,12 +17,18 @@ interface Pages {
   homePage: HomePage;
   loginPage: LoginPage;
   registerPage: RegisterPage;
+  addCommentView: AddCommentView;
 }
 
 export const pageObjectTest = baseTest.extend<Pages>({
   addArticleView: async ({ articlesPage }, use) => {
     const addArticleView = await articlesPage.clickAddArticleButtonLogged();
     await use(addArticleView);
+  },
+
+  addCommentView: async ({ articlePage }, use) => {
+    const addCommentView = await articlePage.clickAddCommentButton();
+    await use(addCommentView);
   },
 
   articlePage: async ({ page }, use) => {
