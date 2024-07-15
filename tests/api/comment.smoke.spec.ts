@@ -74,10 +74,10 @@ test.describe('Verify comments API endpoint @GAD-R08-02 @api', () => {
 
     const responseJson = await response.json();
     await test.step('GET comments should return at least one comment', async () => {
-      const expectedMinArticlesCount = 1;
+      const expectedMinCommentsCount = 1;
 
       expect(responseJson.length).toBeGreaterThanOrEqual(
-        expectedMinArticlesCount,
+        expectedMinCommentsCount,
       );
     });
 
