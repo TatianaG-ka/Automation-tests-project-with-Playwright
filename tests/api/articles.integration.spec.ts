@@ -1,5 +1,6 @@
 import { prepareRandomArticle } from '@_src/factories/article.factory';
 import { testUser1 } from '@_src/test-data/user.data';
+import { getAuthorizationHeader } from '@_src/utils/api.utils';
 import test, { expect } from '@playwright/test';
 
 test.describe('Verify articles CRUD operations @crud @R08-01', () => {
@@ -27,24 +28,11 @@ test.describe('Verify articles CRUD operations @crud @R08-01', () => {
 
   test('should create article with logged user @api', async ({ request }) => {
     //Array
+    const headers = await getAuthorizationHeader(request);
     const expectedStatusCode = 201;
     const articleUrl = '/api/articles';
-    const loginUrl = '/api/login';
-
-    //Login
-    const userData = {
-      email: testUser1.userEmail,
-      password: testUser1.userPassword,
-    };
-
-    const responseLogin = await request.post(loginUrl, { data: userData });
-    const responseLoginJson = await responseLogin.json();
-
-    const headers = {
-      Authorization: `Bearer ${responseLoginJson.access_token}`,
-    };
-
-    //Act
+    
+       //Act
     const randomArticleData = prepareRandomArticle();
     const articleData = {
       title: randomArticleData.title,
