@@ -2,7 +2,7 @@ import { prepareRandomArticle } from '@_src/factories/article.factory';
 import { testUser1 } from '@_src/test-data/user.data';
 import test, { expect } from '@playwright/test';
 
-test.describe('Verify articles CRUD operations @api @R08-01', () => {
+test.describe('Verify articles CRUD operations @crud @R08-01', () => {
   test('should not create article without a logged-in user', async ({
     request,
   }) => {

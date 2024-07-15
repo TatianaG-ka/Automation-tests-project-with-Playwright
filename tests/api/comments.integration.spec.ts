@@ -3,7 +3,7 @@ import { prepareRandomComment } from '@_src/factories/comment.factory';
 import { expect, test } from '@_src/fixtures/merge.fixture';
 import { testUser1 } from '@_src/test-data/user.data';
 
-test.describe('Verify comments CRUD operations @api @R08-02', () => {
+test.describe('Verify comments CRUD operations @crud @R08-02', () => {
   let articleId: number;
   let headers: { [key: string]: string };
 
