@@ -1,6 +1,7 @@
-import { prepareRandomArticle } from '@_src/factories/article.factory';
-import { testUser1 } from '@_src/test-data/user.data';
-import { getAuthorizationHeader } from '@_src/utils/api.utils';
+import {
+  getAuthorizationHeader,
+  prepareArticlePayload,
+} from '@_src/utils/api.utils';
 import test, { expect } from '@playwright/test';
 
 test.describe('Verify articles CRUD operations @crud @R08-01', () => {
@@ -11,16 +12,10 @@ test.describe('Verify articles CRUD operations @crud @R08-01', () => {
     const articlesUrl = '/api/articles';
     const expectedStatusCode = 401;
 
-    const randomArticleData = prepareRandomArticle();
-    const articlesData = {
-      title: randomArticleData.title,
-      body: randomArticleData.body,
-      date: '2024-07-15T10:17:55.324Z',
-      image: '',
-    };
+    const articleData = prepareArticlePayload();
 
     //Act
-    const response = await request.post(articlesUrl, { data: articlesData });
+    const response = await request.post(articlesUrl, { data: articleData });
 
     //Assert
     expect(response.status()).toBe(expectedStatusCode);
@@ -31,16 +26,9 @@ test.describe('Verify articles CRUD operations @crud @R08-01', () => {
     const headers = await getAuthorizationHeader(request);
     const expectedStatusCode = 201;
     const articleUrl = '/api/articles';
-    
-       //Act
-    const randomArticleData = prepareRandomArticle();
-    const articleData = {
-      title: randomArticleData.title,
-      body: randomArticleData.body,
-      date: '2024-07-15T10:57:55.194Z',
-      image:
-        '.\\data\\images\\256\\tester-app_afe1cca6-98d2-4bda-a838-1d413552693e.jpg',
-    };
+
+    //Act
+    const articleData = prepareArticlePayload();
 
     //Arrange
     const responseArticle = await request.post(articleUrl, {
@@ -52,7 +40,7 @@ test.describe('Verify articles CRUD operations @crud @R08-01', () => {
     const actualResponseStatus = responseArticle.status();
     expect(
       actualResponseStatus,
-      `expected status code ${expectedStatusCode} and recieved ${actualResponseStatus}`,
+      `expected status code ${expectedStatusCode} and received ${actualResponseStatus}`,
     ).toBe(expectedStatusCode);
 
     const article = await responseArticle.json();
