@@ -64,7 +64,7 @@ test.describe('Verify articles CRUD operations @api @R08-01', () => {
     const actualResponseStatus = responseArticle.status();
     expect(
       actualResponseStatus,
-      `status code expected ${expectedStatusCode} but recieved ${actualResponseStatus}`,
+      `expected status code ${expectedStatusCode} and recieved ${actualResponseStatus}`,
     ).toBe(expectedStatusCode);
 
     const article = await responseArticle.json();
