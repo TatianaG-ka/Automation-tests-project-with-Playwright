@@ -3,6 +3,7 @@ import { expect, test } from '@_src/fixtures/merge.fixture';
 import {
   getAuthorizationHeader,
   prepareArticlePayload,
+  prepareCommentPayload,
 } from '@_src/utils/api.utils';
 
 test.describe('Verify comments CRUD operations @crud @R08-02', () => {
@@ -32,12 +33,7 @@ test.describe('Verify comments CRUD operations @crud @R08-02', () => {
     const expectedStatusCode = 401;
     const commentsUrl = '/api/comments';
 
-    const randomCommentData = prepareRandomComment();
-    const commentData = {
-      article_id: articleId,
-      body: randomCommentData.body,
-      date: '2024-01-30T15:44:31Z',
-    };
+    const commentData = prepareCommentPayload(articleId);
 
     // Arrange
     const response = await request.post(commentsUrl, {
@@ -55,12 +51,7 @@ test.describe('Verify comments CRUD operations @crud @R08-02', () => {
     // Act
     const commentsUrl = '/api/comments';
 
-    const randomCommentData = prepareRandomComment();
-    const commentData = {
-      article_id: articleId,
-      body: randomCommentData.body,
-      date: '2024-01-30T15:44:31Z',
-    };
+    const commentData = prepareCommentPayload(articleId);
 
     // Arrange
     const response = await request.post(commentsUrl, {
