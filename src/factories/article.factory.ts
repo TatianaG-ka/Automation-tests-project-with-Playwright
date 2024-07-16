@@ -12,7 +12,7 @@ export function prepareRandomArticle(
 
   const body = faker.lorem.paragraph(bodyParagraphs);
 
-  const newArticle = { title: title, body: body };
+  const newArticle: AddArticleModel = { title: title, body: body };
 
   return newArticle;
 }

@@ -27,7 +27,9 @@ test.describe('Verify menu main button', () => {
     expect(title).toContain(expectedArticleTitle);
   });
 
-  test('home page button navigates to main page @R01-03', async ({ articlesPage }) => {
+  test('home page button navigates to main page @R01-03', async ({
+    articlesPage,
+  }) => {
     // Arrange
     const expectedHomePageTitle = '🦎 GAD';
 

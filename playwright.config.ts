@@ -7,6 +7,8 @@ import * as path from 'path';
  */
 
 export const STORAGE_STATE = path.join(__dirname, 'tmp/session.json');
+export const RESPONSE_TIMEOUT = 10_000;
+
 export default defineConfig({
   testDir: './tests',
   globalSetup: 'config/global.setup.ts',
@@ -25,8 +27,10 @@ export default defineConfig({
   },
 
   projects: [
+    { name: 'api', testDir: 'tests/api' },
     {
       name: 'chromium-non-logged',
+      testDir: 'tests/api',
       grepInvert: /@logged/,
       use: { ...devices['Desktop Chrome'] },
     },
