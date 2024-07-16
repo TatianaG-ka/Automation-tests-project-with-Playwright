@@ -40,6 +40,20 @@ test.describe('Verify articles CRUD operations @crud', () => {
         headers,
         data: articleData,
       });
+      //Assert created article
+      const articleJson = await responseArticle.json();
+
+      const expectedStatusCode = 200;
+      await expect(async () => {
+        const responseArticleCreated = await request.get(
+          `${apiLinks.articlesUrl}/${articleJson.id}`,
+        );
+
+        expect(
+          responseArticleCreated.status(),
+          `Expected status: ${expectedStatusCode} and observed: responseArticleCreated.status()`,
+        ).toBe(expectedStatusCode);
+      }).toPass({ timeout: 2_000 });
     });
 
     test('should create an article with logged-in user @R08-01', async () => {
