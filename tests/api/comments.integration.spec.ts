@@ -25,7 +25,7 @@ test.describe('Verify comments CRUD operations @crud @R08-02', () => {
     articleId = article.id;
   });
 
-  test('should not create an comment without a logged-in user', async ({
+  test('should not create a comment without a logged-in user', async ({
     request,
   }) => {
     // Arrange
@@ -41,7 +41,7 @@ test.describe('Verify comments CRUD operations @crud @R08-02', () => {
     expect(response.status()).toBe(expectedStatusCode);
   });
 
-  test('should create an comment with logged-in user', async ({ request }) => {
+  test('should create a comment with logged-in user', async ({ request }) => {
     // Arrange
     const expectedStatusCode = 201;
 

@@ -7,10 +7,21 @@ export const apiLinks = {
   articlesUrl: '/api/articles',
   commentsUrl: '/api/comments',
 };
-
-interface Headers {
+export interface ArticlePayload {
+  title: string;
+  body: string;
+  date: string;
+  image: string;
+}
+interface CommentPayload {
+  article_id: number;
+  body: string;
+  date: string;
+}
+export interface Headers {
   [key: string]: string;
 }
+
 export async function getAuthorizationHeader(
   request: APIRequestContext,
 ): Promise<Headers> {
@@ -19,20 +30,11 @@ export async function getAuthorizationHeader(
     email: testUser1.userEmail,
     password: testUser1.userPassword,
   };
-
   const responseLogin = await request.post(loginUrl, { data: userData });
   const responseLoginJson = await responseLogin.json();
-
   return {
     Authorization: `Bearer ${responseLoginJson.access_token}`,
   };
-}
-
-interface ArticlePayload {
-  title: string;
-  body: string;
-  date: string;
-  image: string;
 }
 
 export function prepareArticlePayload(): ArticlePayload {
@@ -45,12 +47,6 @@ export function prepareArticlePayload(): ArticlePayload {
       '.\\data\\images\\256\\tester-app_9f26eff6-2390-4460-8829-81a9cbe21751.jpg',
   };
   return articleData;
-}
-
-interface CommentPayload {
-  article_id: number;
-  body: string;
-  date: string;
 }
 
 export function prepareCommentPayload(articleId: number): CommentPayload {
