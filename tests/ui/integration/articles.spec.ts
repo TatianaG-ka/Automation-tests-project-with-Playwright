@@ -14,7 +14,7 @@ test.describe('Verify articles', () => {
     const articleData = prepareRandomArticle();
     articleData.title = '';
 
-    const responsePromise = waitForResponse({page, url: '/api/articles'});
+    const responsePromise = waitForResponse({ page, url: '/api/articles' });
 
     //Act
     await addArticleView.createArticle(articleData);

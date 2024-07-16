@@ -1,4 +1,5 @@
 import {
+  apiLinks,
   getAuthorizationHeader,
   prepareArticlePayload,
 } from '@_src/utils/api.utils';
@@ -9,13 +10,14 @@ test.describe('Verify articles CRUD operations @crud @R08-01', () => {
     request,
   }) => {
     //Array
-    const articlesUrl = '/api/articles';
     const expectedStatusCode = 401;
 
     const articleData = prepareArticlePayload();
 
     //Act
-    const response = await request.post(articlesUrl, { data: articleData });
+    const response = await request.post(apiLinks.articlesUrl, {
+      data: articleData,
+    });
 
     //Assert
     expect(response.status()).toBe(expectedStatusCode);

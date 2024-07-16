@@ -1,6 +1,6 @@
-import { prepareRandomComment } from '@_src/factories/comment.factory';
 import { expect, test } from '@_src/fixtures/merge.fixture';
 import {
+  apiLinks,
   getAuthorizationHeader,
   prepareArticlePayload,
   prepareCommentPayload,
@@ -14,10 +14,9 @@ test.describe('Verify comments CRUD operations @crud @R08-02', () => {
     headers = await getAuthorizationHeader(request);
 
     // Create article
-    const articlesUrl = '/api/articles';
     const articleData = prepareArticlePayload();
 
-    const responseArticle = await request.post(articlesUrl, {
+    const responseArticle = await request.post(apiLinks.articlesUrl, {
       headers,
       data: articleData,
     });
@@ -31,12 +30,10 @@ test.describe('Verify comments CRUD operations @crud @R08-02', () => {
   }) => {
     // Arrange
     const expectedStatusCode = 401;
-    const commentsUrl = '/api/comments';
-
     const commentData = prepareCommentPayload(articleId);
 
     // Arrange
-    const response = await request.post(commentsUrl, {
+    const response = await request.post(apiLinks.commentsUrl, {
       data: commentData,
     });
 
@@ -49,12 +46,10 @@ test.describe('Verify comments CRUD operations @crud @R08-02', () => {
     const expectedStatusCode = 201;
 
     // Act
-    const commentsUrl = '/api/comments';
-
     const commentData = prepareCommentPayload(articleId);
 
     // Arrange
-    const response = await request.post(commentsUrl, {
+    const response = await request.post(apiLinks.commentsUrl, {
       headers,
       data: commentData,
     });
