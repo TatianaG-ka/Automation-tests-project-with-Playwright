@@ -16,9 +16,8 @@
 
 # 📝 About The Project <a id="about-the-project"></a>
 
-A sample framework for automation E2E and API tests.
-I have prepared some tests cases to demonstrate how the framework works.
-My focus was not on them actually testing the application, but on showing how to write and structure the tests themselves. I chose CAG Test application, where even such simple tests sometimes require thoughtful solutions.
+### A sample framework for automation E2E and API tests.
+I have prepared several test cases to demonstrate the functionality and structure of the automation framework. My primary focus was on illustrating how to write and organize the tests, rather than on the actual testing of the application. I selected the GAD Test application, as it presents scenarios where even simple tests demand thoughtful and creative solutions.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -94,7 +93,7 @@ npx playwright test --grep "@R01-01"
 Run all tests without tags:
 
 ```
-npx playwright test --grep-invert "@TDI-R01-01"
+npx playwright test --grep-invert "@R01-01"
 ```
 
 For more usage cases look in `package.json` scripts section.
@@ -202,7 +201,7 @@ other script with added parameters:
 
 
 Simple Page Object Model
-Simple implementation of Page Object Model can be based on classes that represents and implements tested pages. Those calsses contains locators of elements, that are used in tests, e.g. buttons, inputs etc.
+Simple implementation of Page Object Model can be based on classes that represents and implements tested pages. Those classes contains locators of elements, that are used in tests, e.g. buttons, inputs etc.
 
 Directory structure:
 ```
